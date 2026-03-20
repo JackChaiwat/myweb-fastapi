@@ -1,8 +1,12 @@
 import jwt 
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import os
 
-SECRET_KEY = "secret-a8d93b5c1f0e4ce9f2a1c4d5e"
-ALGORITHM = "HS256"
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
+load_dotenv()
+
 
 def create_token(username: str):
     expire = datetime.now() + timedelta(minutes=30)
@@ -18,6 +22,6 @@ def verify_token(token):
     payload = jwt.decode(
         token,
         SECRET_KEY,
-        algorithms=["HS256"]
+        algorithms=[ALGORITHM]
     )
     return payload

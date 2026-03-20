@@ -1,0 +1,17 @@
+{% extends "sqladmin/layout.html" %}
+
+{% block content %}
+<h2>Upload Product Image</h2>
+
+{% if request.query_params.get('filename') %}
+<img src="/static/uploads/{{ request.query_params.get('filename') }}" style="width: 300px;">
+{% endif %}
+
+<form method="post" action="/upload-images" enctype="multipart/form-data">
+    <div style="border:2px dashed gray; padding:40px; text-align:center;">
+        Drop image here or click to upload
+        <input type="file" name="files" multiple>
+    </div><br><br>
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}

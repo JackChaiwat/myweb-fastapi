@@ -1,12 +1,10 @@
-sqladmin
-itsdangerous
-easyocr
-pyjwt
-pytest
 fastapi
 uvicorn
 sqlalchemy
 pydantic
 python-jose
 passlib[bcrypt]
+python-dotenv
+sqladmin
+itsdangerous
 python-dotenv
